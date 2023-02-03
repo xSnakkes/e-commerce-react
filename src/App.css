@@ -129,6 +129,7 @@ body{
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    padding-bottom: 200px;
 }
 
 .item__list{
@@ -138,7 +139,7 @@ body{
     gap: 50px;
     align-items: center;
     justify-content: center;
-    padding-top: 200px;
+    padding-top: 20px;
 }
 
 .item{
@@ -156,12 +157,9 @@ body{
     width: 100%;
     height: 100%;
 }
+
 .item:hover{
     transform: scale(1.04);
-}
-
-.item__img img:hover{
-    
 }
 
 .item__title{
@@ -189,7 +187,6 @@ body{
     justify-content: space-between;
 }
 
-
 .add-card {
     width: 40px;
     height: 40px;
@@ -208,7 +205,6 @@ body{
 .add-card:hover{
     background-color: rgb(95, 95, 95);
 }
-
 
 /* CART */
 
@@ -256,7 +252,6 @@ body{
     text-transform: uppercase;
 }
 
-
 .cart__del{
     width: 40px;
     height: 40px;
@@ -273,4 +268,30 @@ body{
     padding-left: 20px;
     padding-bottom: 20px;
     text-transform: uppercase;
+}
+
+.categories{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+}
+
+.categories__item:hover{
+    color: rgb(117, 117, 117);
+}
+
+.categories__item{
+    z-index: 3;
+    border: 2px solid #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgb(253, 253, 253);
+    color: #000;
+    cursor: pointer;
+}
+
+.footer{
+    padding-top: 100px;
+    padding-bottom: 40px;
 }

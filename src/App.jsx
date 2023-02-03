@@ -5,6 +5,7 @@ import './App.css'
 import React from "react";
 import { Items } from "./components/Items";
 import {AiOutlineArrowDown} from "react-icons/ai";
+import Categories from "./components/Categories";
 
 
 class App extends React.Component {
@@ -12,6 +13,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       orders: [],
+      currentItems: [],
       items: [
         {
           id: 1,
@@ -55,8 +57,10 @@ class App extends React.Component {
         },
       ]
     }
+    this.state.currentItems = this.state.items
     this.addToOrder = this.addToOrder.bind(this)
     this.deleteOrder = this.deleteOrder.bind(this)
+    this.chooseCategory = this.chooseCategory.bind(this)
   }
 
   render(){
@@ -71,20 +75,32 @@ class App extends React.Component {
             window.scrollTo({
               top: 1100,
               behavior: "smooth"
-          });
+            });
           }}>
             <div className="arrow__text">
               scroll bottom
             </div>
             <AiOutlineArrowDown className="arrow__down" />
           </div>
-          <Items items={this.state.items} onAdd={this.addToOrder}/>
+          <Categories chooseCategory={this.chooseCategory}/>
+          <Items items={this.state.currentItems} onAdd={this.addToOrder}/>
         </main>
         <footer className="footer">
           <Footer />
         </footer>
       </div>
     );
+  }
+
+  chooseCategory(category) {
+    if(category === 'all') {
+      this.setState({currentItems: this.state.items})
+      return
+    }
+
+    this.setState({
+      currentItems: this.state.items.filter(el => el.category === category)
+    })
   }
 
   deleteOrder(id){
@@ -102,7 +118,6 @@ class App extends React.Component {
       this.setState({orders: [...this.state.orders, item] } )
     } 
   }
-}
-    
+}  
 
 export default App;
