@@ -1,7 +1,8 @@
-import React from "react";
-import { AiOutlineShopping } from "react-icons/ai"
+import React, { useState } from "react";
+import { AiOutlineShopping } from "react-icons/ai";
 
 export default function Header() {
+  let [cartOpen, setCartOpen] = useState(false);
   return (
     <div className="header__items">
       <div className="header__logo">
@@ -12,7 +13,13 @@ export default function Header() {
         <li className="nav__items">Contacts</li>
         <li className="nav__items">Account</li>
       </ul>
-      <AiOutlineShopping />
+      <div className="shop__card">
+        <AiOutlineShopping
+          onClick={() => setCartOpen((cartOpen = !cartOpen))}
+          className={`shop__button ${cartOpen && "active"}`}
+        />
+        {cartOpen && <div className="shop__cart"></div>}
+      </div>
     </div>
   );
 }
