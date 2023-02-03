@@ -4,6 +4,7 @@ import Main from "./components/Main";
 import './App.css'
 import React from "react";
 import { Items } from "./components/Items";
+import {AiOutlineArrowDown} from "react-icons/ai";
 
 
 class App extends React.Component {
@@ -55,16 +56,28 @@ class App extends React.Component {
       ]
     }
     this.addToOrder = this.addToOrder.bind(this)
+    this.deleteOrder = this.deleteOrder.bind(this)
   }
 
   render(){
     return (
       <div className="wrapper">
         <header className="header">
-          <Header orders={this.state.orders} />
+          <Header orders={this.state.orders} onDelete={this.deleteOrder} />
         </header>
         <main className="page">
           <Main />
+          <div className="arrow" onClick={()=>{
+            window.scrollTo({
+              top: 1100,
+              behavior: "smooth"
+          });
+          }}>
+            <div className="arrow__text">
+              scroll bottom
+            </div>
+            <AiOutlineArrowDown className="arrow__down" />
+          </div>
           <Items items={this.state.items} onAdd={this.addToOrder}/>
         </main>
         <footer className="footer">
@@ -72,6 +85,10 @@ class App extends React.Component {
         </footer>
       </div>
     );
+  }
+
+  deleteOrder(id){
+    this.setState({orders: this.state.orders.filter(el => el.id !== id )})
   }
 
   addToOrder(item){

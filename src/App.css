@@ -116,6 +116,21 @@ body{
     font-size: 100px;
 }
 
+.arrow__down{
+    height: 50px;
+    width: 50px;
+
+}
+
+.arrow{
+    padding-top: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
 .item__list{
     display: flex;
     flex-direction: row;
@@ -142,7 +157,7 @@ body{
     height: 100%;
 }
 .item:hover{
-    transform: scale(1.2);
+    transform: scale(1.04);
 }
 
 .item__img img:hover{
@@ -236,7 +251,26 @@ body{
 .text__empty{
     color: #000;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 50px;
     font-size: 30px;
-    
+    text-transform: uppercase;
+}
+
+
+.cart__del{
+    width: 40px;
+    height: 40px;
+    color: rgb(255, 149, 149);
+    cursor: pointer;
+}
+
+.cart__del:hover{
+    color: rgb(252, 34, 34);
+}
+
+.summa{
+    color: #000;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
 }

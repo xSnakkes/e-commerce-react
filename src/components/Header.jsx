@@ -3,11 +3,14 @@ import { AiOutlineShopping } from "react-icons/ai";
 import Order from "./Order";
 
 const showOrders = (props) => {
+  let summa = 0
+  props.orders.forEach(el => summa += Number.parseFloat(el.price))
   return (
     <div>
       {props.orders.map((el) => (
-        <Order key={el.id} item={el} />
+        <Order onDelete={props.onDelete} key={el.id} item={el} />
       ))}
+      <p className="summa">Sum: {summa}$</p>
     </div>
   );
 };
@@ -15,7 +18,7 @@ const showOrders = (props) => {
 const showNothing = () => {
   return (
     <div className="empty">
-      <h2 className="text__empty">your basket is empty </h2>
+      <h2 className="text__empty">your backet is empty </h2>
     </div>
   );
 };
