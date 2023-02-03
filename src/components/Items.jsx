@@ -7,7 +7,7 @@ export class Items extends Component {
             <section className='item__list'>
                 {
                     this.props.items.map(el => (
-                        <Item key={el.id} item={el}/>
+                        <Item key={el.id} item={el} onAdd={this.props.onAdd}/>
                     ))
                 }
             </section>

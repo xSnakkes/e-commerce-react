@@ -11,7 +11,7 @@ export class Item extends Component {
                 <div className='item__desc'>{this.props.item.desc}</div>
                 <div className="items__buy">
                     <div className='item__price'>{this.props.item.price}$</div>
-                    <div className="add-card">
+                    <div className="add-card" onClick={() => this.props.onAdd(this.props.item)}>
                         +
                     </div>
                 </div>
